@@ -1,12 +1,9 @@
 class VehiclesController < ApplicationController
-
   before_action :set_vehicle, only: %i[show edit update destroy]
-
 
   def index
     @vehicles = Vehicle.all
   end
-
 
   def show; end
 
@@ -19,7 +16,7 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.save
-        format.html { redirect_to vehicles_path(@vehicle), notice: 'Vehicle was successfully created.' }
+        format.html { redirect_to vehicle_url(@vehicle), notice: 'Vehicle was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,9 +43,10 @@ class VehiclesController < ApplicationController
     @vehicle.destroy
 
     respond_to do |format|
-      format.html { redirect_to vehicles_path, notice: 'Vehicle was successfully destroyed.' }
+      format.html { redirect_to vehicles_url, alert: 'Vehicle was successfully deleted.' }
       format.json { head :no_content }
     end
+  end
 
   private
 
@@ -58,4 +56,5 @@ class VehiclesController < ApplicationController
 
   def vehicle_params
     params.require(:vehicle).permit(:name, :price_per_day, :description, :user_id, :location, :min_days, :max_days)
+  end
 end
