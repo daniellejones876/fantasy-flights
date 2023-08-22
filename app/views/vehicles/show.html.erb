@@ -1,0 +1,28 @@
+<div class="container">
+<h1><%= @vehicle.name %></h1>
+
+<strong>Owned by:</strong>
+<%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %>
+<br>
+<strong>PPD:</strong>
+<%= @vehicle.price_per_day %>€
+<br>
+<strong>Description:</strong>
+<%= @vehicle.description %>
+<br>
+<strong>Min days:</strong>
+<%= @vehicle.min_days %>
+<br>
+<strong>Max days:</strong>
+<%= @vehicle.max_days %>
+<br>
+<br>
+<% if @vehicle.user_id == current_user.id %>
+<%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %><br>
+<%= link_to "Delete your #{@vehicle.name}", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@vehicle.name}?" } %>
+<% end %>
+
+<p>
+<%= link_to "Back to vehicles", vehicles_path %>
+</p>
+</div>
