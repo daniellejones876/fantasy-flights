@@ -2,7 +2,7 @@
 <h1><%= @vehicle.name %></h1>
 
 <strong>Owned by:</strong>
-<%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %>
+<%= link_to "#{@vehicle.user.first_name} #{@vehicle.user.last_name}", user_path(@vehicle.user) %><br>
 <br>
 <strong>PPD:</strong>
 <%= @vehicle.price_per_day %>€
