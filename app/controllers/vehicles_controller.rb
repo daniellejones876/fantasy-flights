@@ -5,7 +5,9 @@ class VehiclesController < ApplicationController
     @vehicles = Vehicle.all
   end
 
-  def show; end
+  def show
+    @booking = Booking.new
+  end
 
   def new
     @vehicle = Vehicle.new
@@ -58,4 +60,3 @@ class VehiclesController < ApplicationController
     params.require(:vehicle).permit(:name, :price_per_day, :description, :user_id, :location, :min_days, :max_days)
   end
 end
-
