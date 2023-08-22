@@ -1,0 +1,17 @@
+<div class="container">
+<p style="color: green"><%= notice %></p>
+
+<h1>INDEX</h1>
+
+<div id="vehicles">
+  <% @vehicles.each do |vehicle| %>
+    <strong>Name:</strong> <%= vehicle.name %>
+    <br>
+    <p>
+      <%= link_to "Show this vehicle", vehicle %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New vehicle", new_vehicle_path %>
+</div>
