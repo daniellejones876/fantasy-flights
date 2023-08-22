@@ -49,6 +49,7 @@ class VehiclesController < ApplicationController
       format.html { redirect_to vehicles_path, notice: 'Vehicle was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
 
   private
 
@@ -58,4 +59,5 @@ class VehiclesController < ApplicationController
 
   def vehicle_params
     params.require(:vehicle).permit(:name, :price_per_day, :description, :user_id, :location, :min_days, :max_days)
+  end
 end
