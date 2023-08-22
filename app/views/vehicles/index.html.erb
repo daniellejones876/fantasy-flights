@@ -2,19 +2,20 @@
 <%# <p style="color: green"><%= notice</p> %>
   <h1>Super Portal</h1>
   <div class="container bg-light">
-    <div class="row gap-3">
+    <div class="row gap-4">
       <%# <div id="vehicles"> %>
       <% @vehicles.each do |vehicle| %>
-        <div class="card col-4" style="width: 24rem">
-          <div class="card-body">
-              <%= image_tag vehicle.image, class:"card-img-top", crop: :fill%>
-              <%# <%= vehicle.image %>
-              <strong>Name:</strong> <%= vehicle.name %>
-              <br>
-              <p><%= link_to "Show this vehicle", vehicle %> </p>
+        <div class="col-md-4 mb-4" style="width: 24rem">
+          <div class="card position-relative">
+            <%= image_tag vehicle.image, class:"card-img", crop: :fill, height: 350, width: 210%>
+                <%# <%= vehicle.image %>
+            <div class="card-body mt-1">
+              <h5 class="card-title"><strong>Name:</strong> <%= vehicle.name %></h5>
+              <p><%= link_to "Show this vehicle", vehicle %></p>
             </div>
           </div>
-        <% end %>
+        </div>
+      <% end %>
       <%# </div> %>
     </div>
     <%= link_to "New vehicle", new_vehicle_path, class:"btn btn-dark"%>

@@ -1,12 +1,32 @@
 <div class="container mt-3">
-  <h1>welcome to your dashboard</h1>
-  <%= current_user.first_name %>
-
-  <% if current_user.vehicles !=nil %>
-    <h2>All Listings</h2>
-    <% current_user.vehicles.each do |vehicle| %>
-      <%= vehicle.name %>
-      <%= vehicle.price_per_day %>
+  <h1>Welcome to your dashboard <%= current_user.first_name %></h1>
+  <div class="container">
+    <% if current_user.vehicles %>
+      <h4>Efffortlessly drive through Gotham in:</h4>
+      <div class="row mt-3 gap-1">
+        <% current_user.vehicles.each do |vehicle| %>
+          <div class="col-md-3 mb-44" style="width: 16rem">
+            <div class="card text-light text-center">
+              <%= image_tag vehicle.image, class:"card-img", crop: :fill, height: 200, width: 50%>
+              <%# <%= vehicle.image %>
+              <div class="card-img-overlay p-2">
+                <h5 class="card-title pt-5"><strong> <%= vehicle.name %></strong></h5>
+                <p><%= link_to "Show this vehicle", vehicle %> </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+    <%= link_to "New vehicle", new_vehicle_path, class:"btn btn-dark mt-2"%>
+  </div>
+  <div class="container mt-4">
+    <h4>Here are all your Bookings</h4>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <p><%= link_to "Book another!", vehicles_path, class:"btn btn-info" %></p>
+  </div>
 </div>
