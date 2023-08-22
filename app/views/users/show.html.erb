@@ -1,0 +1,16 @@
+<div class="container">
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+
+<strong>Bio:</strong>
+<%= @user.bio %>
+<br>
+<strong>Listings:</strong><br><br>
+<% @user.vehicles.each do |vehicle| %>
+  <%= link_to "#{vehicle.name}", vehicle_path(vehicle) %><br>
+<br>
+<% end %>
+
+<p>
+<%= link_to "Back to vehicles", vehicles_path %>
+</p>
+</div>
