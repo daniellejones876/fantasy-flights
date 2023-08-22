@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <h1>welcome to your dashboard</h1>
-
   <%= current_user.first_name %>
+
   <% if current_user.vehicles !=nil %>
     <h2>All Listings</h2>
     <% current_user.vehicles.each do |vehicle| %>
