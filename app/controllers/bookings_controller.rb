@@ -2,9 +2,20 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[edit destroy]
   before_action :set_vehicle, only: %i[new edit]
 
-  def new
-    @booking = Booking.new
-    @user = User.find(params[:user_id])
+  def create
+    @vehicle = Vehicle.find(params[:vehicle_id])
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+
+    respond_to do |format|
+      if @booking.save
+        format.html { redirect_to vehicle_path(@vehicle), notice: 'Vehicle was successfully created.' }
+        format.json { render :show, status: :created, location: @vehicle }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @vehicle.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit; end
@@ -37,6 +48,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :vehicle_id, :start_date, :end_date, :status)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end

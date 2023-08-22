@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
 
   resources :vehicles do
-    resources :booking
+    resources :bookings
   end
 end
