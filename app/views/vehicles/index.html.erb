@@ -5,6 +5,8 @@
 
 <div id="vehicles">
   <% @vehicles.each do |vehicle| %>
+    <%= image_tag(vehicle.image) %>
+    <%# <%= vehicle.image %>
     <strong>Name:</strong> <%= vehicle.name %>
     <br>
     <p>
