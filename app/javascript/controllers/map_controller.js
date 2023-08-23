@@ -9,12 +9,14 @@ export default class extends Controller {
     marker: Object
   }
   connect() {
+    console.log("test");
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
     })
+    console.log(this.map);
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -30,6 +32,9 @@ export default class extends Controller {
           .setPopup(popup)
           .addTo(this.map)
       })
+      new mapboxgl.Marker()
+          .setLngLat([ this.markerValue.lng, this.markerValue.lat ])
+          .addTo(this.map)
     }
 
     #fitMapToMarkers() {
