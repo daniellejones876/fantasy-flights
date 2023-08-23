@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <%= link_to vehicles_path, class: "navbar-brand" do %>
       <%= image_tag "https://www.marcusfabrics.com/image/watermark/itemIR-217350/addImg-102/w-500/h-500/nowatermark-1/df70cf17/BOM-PROGRAMS-FANTASY-FLIGHTS.jpg" %>
+      FantasyFlights
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +16,7 @@
             <%= link_to "Home", "#", class: "nav-link" %>
           <%# </li>  %>
           <li class="nav-item">
-            <%= link_to "Dashboard", "#", class: "nav-link" %>
+            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

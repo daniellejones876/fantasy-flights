@@ -1,44 +1,39 @@
-<div class="container">
-<h1><%= @vehicle.name %></h1>
+<div class="container mt-3">
+  <h1><%= @vehicle.name %></h1>
+  <strong>Owned by:</strong>
+  <%= link_to "#{@vehicle.user.first_name} #{@vehicle.user.last_name}", user_path(@vehicle.user) %><br>
+  <br>
+  <strong>PPD:</strong>
+  <%= @vehicle.price_per_day %>€
+  <br>
+  <strong>Description:</strong>
+  <%= @vehicle.description %>
+  <br>
+  <strong>Min days:</strong>
+  <%= @vehicle.min_days %>
+  <br>
+  <strong>Max days:</strong>
+  <%= @vehicle.max_days %>
+  <br>
+  <br>
+  <% if @vehicle.user_id == current_user.id %>
+    <%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %><br>
+    <%= link_to "Delete your #{@vehicle.name}", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@vehicle.name}?" } %>
+  <% end %>
 
-<strong>Owned by:</strong>
-<%= link_to "#{@vehicle.user.first_name} #{@vehicle.user.last_name}", user_path(@vehicle.user) %><br>
-<br>
-<strong>PPD:</strong>
-<%= @vehicle.price_per_day %>€
-<br>
-<strong>Description:</strong>
-<%= @vehicle.description %>
-<br>
-<strong>Min days:</strong>
-<%= @vehicle.min_days %>
-<br>
-<strong>Max days:</strong>
-<%= @vehicle.max_days %>
-<br>
-<br>
-<% if @vehicle.user_id == current_user.id %>
-<%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %><br>
-<%= link_to "Delete your #{@vehicle.name}", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@vehicle.name}?" } %>
-<% end %>
+  <p><%= link_to "Back to vehicles", vehicles_path %></p>
 
-<p>
-<%= link_to "Back to vehicles", vehicles_path %>
-</p>
+  <%= simple_form_for [@vehicle, @booking] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+    <div class="form-inputs">
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+    </div>
 
-<%= simple_form_for [@vehicle, @booking] do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit "Book this vehicle", :class => "btn btn-outline-secondary"%>
-  </div>
-<% end %>
-
+    <div class="form-actions">
+      <%= f.submit "Book this vehicle", :class => "btn btn-outline-secondary"%>
+    </div>
+  <% end %>
 </div>
