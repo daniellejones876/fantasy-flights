@@ -2,6 +2,7 @@
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
   <strong>Bio:</strong>
   <%= @user.bio %>
+  <%= image_tag @user.image %>
   <br>
   <strong>Listings:</strong><br><br>
   <% @user.vehicles.each do |vehicle| %>
