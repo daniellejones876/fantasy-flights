@@ -3,20 +3,18 @@
   <h1>Super Portal</h1>
     <div class="row m-0 cards-container">
       <% @vehicles.each do |vehicle| %>
-        <div class="col-4 mb-5">
-          <div class="card ">
-            <%= image_tag vehicle.image, class:"card-img", crop: :fill, height: 350, width: 210%>
-            <div class="card-body mt-1">
-              <h5 class="card-title"><strong>Name:</strong> <%= vehicle.name %></h5>
-              <p><%= link_to "Show this vehicle", vehicle %></p>
+        <div class="col-4 mb-3">
+          <%= link_to vehicle do %>
+            <div class="card shadow p-3 mb-5 bg-white rounded-4">
+              <%= image_tag vehicle.image, class:"card-img", crop: :fill, height: 350, width: 210%>
+              <div class="card-body mt-1">
+                <h5 class="card-title"><strong><%= vehicle.name %></strong></h5>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-
-
-    <%= link_to "New vehicle", new_vehicle_path, class:"btn btn-dark"%>
   </div>
 
   <div class="container justify-content-center">
