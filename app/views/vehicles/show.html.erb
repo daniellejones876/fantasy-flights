@@ -19,19 +19,13 @@
   <% if @vehicle.user_id == current_user.id %>
     <%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %><br>
     <%= link_to "Delete your #{@vehicle.name}", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@vehicle.name}?" } %>
-  <% end %>
-
-
   <%= render 'bookings/form' %>
-
-<br>
-
+  <br>
   <p><%= link_to "Back to vehicles", vehicles_path %></p>
     <div class="form-actions">
       <%= f.submit "Book this vehicle", :class => "btn btn-outline-secondary"%>
     </div>
   <% end %>
-
   <div class="container mt-3 justify-content-center">
     <div style="width: 100%; height: 500px;"
       data-controller="map"
