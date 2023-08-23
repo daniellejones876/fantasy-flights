@@ -2,7 +2,8 @@ User.destroy_all
 Vehicle.destroy_all
 Booking.destroy_all
 
-draco = User.new(first_name: "Draco", last_name: "Malfoy", email: "draco@gmail.com", password: "123456")
+draco = User.new(first_name: "Draco", last_name: "Malfoy", email: "draco@gmail.com", password: "123456",bio: "Unapologetically silver-tongued scion navigating a world of wizardry with aristocratic flair.")
+draco.image = "Users/Draco.png"
 draco.save
 
 nimbus = Vehicle.new(name: "Nimbus",
@@ -39,7 +40,8 @@ portkey.user_id = draco.id
 portkey.image = "vehicles/portkey_boot.png"
 portkey.save
 
-sauron = User.new(first_name: "Andre", last_name: "Sauron", phone_number: "123123123", email: "andre@gmail.com", password: "123456")
+sauron = User.new(first_name: "Andre", last_name: "Sauron", phone_number: "123123123", email: "andre@gmail.com", password: "123456", bio: "Dark Lord relentlessly seeking dominion, his fiery gaze pierces the realms of Middle-earth.")
+sauron.image = "Users/Sauron.png"
 sauron.save
 
 nazgul = Vehicle.new(name: "Nazgûl",
@@ -54,7 +56,8 @@ nazgul.user_id = sauron.id
 nazgul.image = "vehicles/nazgul.png"
 nazgul.save
 
-surfer = User.new(first_name: "Silver", last_name: "Surfer", email: "surfer@gmail.com", password: "123456")
+surfer = User.new(first_name: "Silver", last_name: "Surfer", email: "surfer@gmail.com", password: "123456", bio: "Silver cosmic herald riding the galactic waves in pursuit of balance and enlightenment.")
+surfer.image = "Users/surfer.png"
 surfer.save
 
 surfboard = Vehicle.new(name: "Silver Surfer's surfboard",
@@ -67,7 +70,8 @@ surfboard.user_id = surfer.id
 surfboard.image = "vehicles/silver_surfboard.png"
 surfboard.save
 
-batman = User.new(first_name: "Bruce", last_name: "Wayne", email: "batman@gmail.com", password: "123456")
+batman = User.new(first_name: "Bruce", last_name: "Wayne", email: "batman@gmail.com", password: "123456", bio: "Brooding vigilante of Porto's shadows, delivering justice with a relentless edge.")
+batman.image = "Users/Bruce_Wayne.png"
 batman.save
 
 batmobile = Vehicle.new(name: "Batmobile",
@@ -92,7 +96,8 @@ bat.user_id = batman.id
 bat.image = "vehicles/the_bat.png"
 bat.save
 
-ironman = User.new(first_name: "Tony", last_name: "Stark", email: "ironman@gmail.com", password: "123456")
+ironman = User.new(first_name: "Tony", last_name: "Stark", email: "ironman@gmail.com", password: "123456", bio: "Genius, billionaire, playboy, and philanthropist, engineering innovation and heroism with unparalleled charisma.")
+ironman.image = "Users/ironman.png"
 ironman.save
 
 mark = Vehicle.new(name: "Mark 43",
@@ -110,7 +115,8 @@ mark.user_id = ironman.id
 mark.image = "vehicles/mark43.png"
 mark.save
 
-goblin = User.new(first_name: "Green", last_name: "Goblin", email: "goblin@gmail.com", password: "123456")
+goblin = User.new(first_name: "Green", last_name: "Goblin", email: "goblin@gmail.com", password: "123456", bio: "Maniacal mastermind on a fiendish spree, sowing chaos through pumpkin bombs and maniacal glee.")
+goblin.image = "Users/green_goblin.png"
 goblin.save
 
 glider = Vehicle.new(name: "Green Glider",
@@ -125,7 +131,8 @@ glider.user_id = goblin.id
 glider.image = "vehicles/green_glider.png"
 glider.save
 
-teller = User.new(first_name: "Jax", last_name: "Teller", email: "teller@gmail.com", password: "123456")
+teller = User.new(first_name: "Jax", last_name: "Teller", email: "teller@gmail.com", password: "123456", bio: "Motorcycle-riding rebel with a wit as sharp as my bike's handlebars and a smile that could steal hearts faster than a roaring engine.")
+teller.image = "Users/Jax_Teller.png"
 teller.save
 
 davidson = Vehicle.new(name: "Harley Davidson",
@@ -140,10 +147,11 @@ davidson = Vehicle.new(name: "Harley Davidson",
   davidson.image = "vehicles/harley_davidson.png"
 davidson.save
 
-carter = User.new(first_name: "Jimmy", last_name: "Carter", email: "carter@gmail.com", password: "123456")
+carter = User.new(first_name: "Jimmy", last_name: "Carter", email: "carter@gmail.com", password: "123456", bio: "Smooth-talking detective with a knack for chaos and crime-solving, turning every situation into a wild adventure.")
+carter.image = "Users/carter.png"
 carter.save
 
-stingray = Vehicle.new(name: "Chevrolet Corvette Stingray C3",
+stingray = Vehicle.new(name: "Chevrolet Corvette Stingray",
                        price_per_day: 45,
                        location: "California",
                        description: "Yo, it's your buddy Carter from Rush Hour, and guess what? My sweet Chevrolet
