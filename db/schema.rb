@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_22_151447) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_100520) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_151447) do
     t.string "last_name"
     t.string "phone_number"
     t.text "bio"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -53,6 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_151447) do
     t.integer "min_days"
     t.integer "max_days"
     t.string "image"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_vehicles_on_user_id"
   end
 
