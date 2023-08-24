@@ -1,36 +1,29 @@
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-md-8">
-      <h1><%= @vehicle.name %></h1>
-      <strong>Price Per Day:</strong>
-      <%= @vehicle.price_per_day %>€
-      <br>
-      <strong>Description:</strong>
-      <%= @vehicle.description %>
-      <br>
-      <div>
-        <%= image_tag @vehicle.user.image, class:"avatar-large"%>
-        <%= link_to "#{@vehicle.user.first_name} #{@vehicle.user.last_name}", user_path(@vehicle.user) %><br>
-      </div>
-      <br>
-      <% if @vehicle.user_id == current_user.id %>
-        <%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %><br>
-        <%= link_to "Delete your #{@vehicle.name}", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@vehicle.name}?" } %>
-      <% else %>
-        <div class="col-md-6">
-          <%= render 'bookings/form' %>
-        </div>
-      <% end %>
-      <div class="row">
-        <div class="col-md-6">
-          <%= image_tag @vehicle.image, height: 300, width: 300 %>
+<div class="container my-5 p-0">
+  <div class="row h-100">
+    <%# <button type="button" class="btn btn-dark mb-2"><%= link_to "Back to vehicles", vehicles_path %>
+    <div class="col-8 h-10">
+      <div class="card mb-3" style="width: 100%;">
+        <div class="card-body">
+          <h3 class="card-title mb-3"><%= @vehicle.name %></h3>
+          <h6 class="card-subtitle mb-3 text-muted">Price Per Day: <%= @vehicle.price_per_day %>€</h6>
+          <p class="card-text"><%= @vehicle.description %></p>
+          <%= image_tag @vehicle.user.image, class:"avatar-large"%>
+          <a class="card-link"><%= link_to "#{@vehicle.user.first_name} #{@vehicle.user.last_name}", user_path(@vehicle.user) %></a>
+          <div class ="mt-3">
+            <% if @vehicle.user_id == current_user.id %>
+            <button type="button" class="btn btn-outline-dark"><%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %></button>
+            <button type="button" class="btn btn-outline-dark"><%= link_to "Delete your #{@vehicle.name}", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@vehicle.name}?" } %></button>
+            <% end %>
+          </div>
         </div>
       </div>
-      <br>
-      <%# <p><%= link_to "Back to vehicles", vehicles_path %></p>
+      <div class="form-pic d-flex justify-content-between mt-5">
+          <div class="form-container w-100 me-4"><%= render 'bookings/form' %></div>
+          <div class="pic-container"><%= image_tag @vehicle.image, height: 300, width: 300, id: "vehicle_photo" , style: "width:300;"%></div>
+      </div>
     </div>
-    <div class="col-md-4">
-      <div style="width: 100%; height: 500px;"
+    <div class="col-4 h-100">
+      <div style="width: 100%; height: 700px;"
         data-controller="map"
         data-map-marker-value="<%= @marker.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
