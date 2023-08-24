@@ -2,14 +2,16 @@
   <div class="row">
     <div class="col-md-8">
       <h1><%= @vehicle.name %></h1>
-      <%= link_to "#{@vehicle.user.first_name} #{@vehicle.user.last_name}", user_path(@vehicle.user) %><br>
       <strong>PPD:</strong>
       <%= @vehicle.price_per_day %>€
       <br>
       <strong>Description:</strong>
       <%= @vehicle.description %>
       <br>
-      <%= image_tag @owner.image, class:"avatar-large"%>
+      <div>
+        <%= image_tag @vehicle.user.image, class:"avatar-large"%>
+        <%= link_to "#{@vehicle.user.first_name} #{@vehicle.user.last_name}", user_path(@vehicle.user) %><br>
+      </div>
       <br>
       <% if @vehicle.user_id == current_user.id %>
         <%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %><br>
