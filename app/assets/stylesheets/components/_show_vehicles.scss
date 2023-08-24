@@ -1,5 +1,11 @@
 .container #show-map {
-  height: 100vh;
-  position: sticky;
-  top: 0;
+  height: 95%;
+}
+.btn {
+  text-decoration: none ;
+}
+
+#vehicle_photo {
+  border-radius: 8px;
+  text-align: center;
 }
