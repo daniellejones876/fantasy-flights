@@ -1,2 +1,6 @@
-<h6><%= vehicle.name %></h6>
+<%= link_to vehicle, class: "text-decoration-none" do %>
+<div>
+<%=  vehicle.name %>
 <p>📍<%= vehicle.location %></p>
+</div>
+<% end %>

@@ -13,14 +13,21 @@ class BookingsController < ApplicationController
   def create
     @vehicle = Vehicle.find(params[:vehicle_id])
     @booking = current_user.bookings.new(booking_params)
+    booking_duration = (@booking.end_date - @booking.start_date).to_i
 
     respond_to do |format|
-      if @booking.save
-        format.html { redirect_to dashboard_path, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @vehicle }
+      if booking_duration.zero?
+        format.html { redirect_to vehicle_path(@vehicle), alert: 'Your booking needs to last longer than one day!' }
+      elsif (booking_duration < @booking.vehicle.min_days.to_i)
+        format.html { redirect_to vehicle_path(@vehicle), alert: "This booking needs to be longer than #{@booking.vehicle.min_days} days!" }
       else
-        format.html { redirect_to vehicle_path(@vehicle), status: :unprocessable_entity }
-        format.json { render json: @vehicle.errors, status: :unprocessable_entity }
+        if @booking.save
+          format.html { redirect_to dashboard_path, notice: 'Booking was successfully created.' }
+          format.json { render :show, status: :created, location: @vehicle }
+        else
+          format.html { redirect_to vehicle_path(@vehicle), status: :unprocessable_entity }
+          format.json { render json: @vehicle.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
