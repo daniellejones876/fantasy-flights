@@ -1,8 +1,5 @@
 <div class="container mt-3">
   <h1><%= @vehicle.name %></h1>
-  <p class ="lead">Owner:</p>
-  <%# <%= image_tag .image %>
-  <%= link_to "#{@vehicle.user.first_name} #{@vehicle.user.last_name}", user_path(@vehicle.user) %><br>
   <strong>PPD:</strong>
   <%= @vehicle.price_per_day %>€
   <br>
@@ -13,9 +10,10 @@
   <%= @vehicle.min_days %>
   <br>
   <strong>Max days:</strong>
+  <br>
   <%= @vehicle.max_days %>
-  <br>
-  <br>
+  <%= image_tag @owner.image, class:"avatar-large"%>
+  <%= link_to "#{@vehicle.user.first_name} #{@vehicle.user.last_name}", user_path(@vehicle.user) %><br>
   <% if @vehicle.user_id == current_user.id %>
     <%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %><br>
     <%= link_to "Delete your #{@vehicle.name}", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@vehicle.name}?" } %>
