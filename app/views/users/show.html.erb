@@ -11,3 +11,10 @@
   <% end %>
   <p><%= link_to "Back to vehicles", vehicles_path %></p>
 </div>
+
+<div class="container">
+  <%= image_tag @user.image, class:"banner", style:"filter: brightness(75%)", crop: :fill%>
+  <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+  <p>Change your life and learn to code at one of our campuses around the world.</p>
+  <a class="btn btn-flat" href="#">Apply now</a>
+</div>
