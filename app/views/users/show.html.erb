@@ -1,20 +1,45 @@
-<div class="container mt-3">
-  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-  <%= image_tag @user.image %>
-  <br>
-  <strong>Listings:</strong><br><br>
-  <% @user.vehicles.each do |vehicle| %>
-    <%= link_to "#{vehicle.name}", vehicle_path(vehicle) %><br>
-    <br>
-  <% end %>
-  <p><%= link_to "Back to vehicles", vehicles_path %></p>
+<div class="container my-3">
+  <div class="row h-100">
+    <div class="col-6">
+      <%= image_tag @user.image %>
+    </div>
+    <div class="col-6">
+      <div class="card text-center border-0">
+        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+        <strong>Bio:</strong>
+        <%= @user.bio %>
+        <br>
+        <br>
+        <strong>Listings:</strong><br><br>
+      </div>
+      <div class="container">
+        <div class="card-deck d-flex justify-content-around mt-1">
+          <div class="card">
+            <% @user.vehicles.each do |vehicle| %>
+            <div class="col-2 mb-20" style="width: 16rem">
+              <%= link_to vehicle_path(vehicle) do %>
+              <div class="card text-light text-center">
+                <%= image_tag vehicle.image, class:"card-img", style:"filter: brightness(75%)", crop: :fill, height: 200, width: 50%>
+                <div class="card-img-overlay p-2">
+                  <h5 class="card-title pt-5 text-decoration-none text-white"> <%= vehicle.name %> </h5>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-outline-dark"><%= link_to "Back to vehicles", vehicles_path %></button>
+    </div>
+  </div>
 </div>
 
-<div class="container">
+
+<%# <div class="container">
   <%= image_tag @user.image, class:"banner", style:"filter: brightness(75%)", crop: :fill%>
-  <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-  <p>Change your life and learn to code at one of our campuses around the world.</p>
-  <a class="btn btn-flat" href="#">Apply now</a>
-</div>
+  <%# <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1> %>
+  <%# <p>Change your life and learn to code at one of our campuses around the world.</p> %>
+  <%# <a class="btn btn-flat" href="#">Apply now</a> %>
+<%# </div> %>
