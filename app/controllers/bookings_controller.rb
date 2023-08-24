@@ -1,9 +1,13 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[edit update destroy]
+  before_action :set_booking, only: %i[edit update destroy approve_booking]
   before_action :set_vehicle, only: %i[new edit destroy]
 
   def new
     @booking = Booking.new
+  end
+
+  def approve_booking
+    redirect_to dashboard_path, notice: 'Booking was successfully approved!', status: :see_other if @booking.update!(status: "Approved")
   end
 
   def create
@@ -12,7 +16,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to vehicle_path(@vehicle), notice: 'Booking was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle }
       else
         format.html { redirect_to vehicle_path(@vehicle), status: :unprocessable_entity }
@@ -35,7 +39,7 @@ class BookingsController < ApplicationController
     @booking.destroy
 
     respond_to do |format|
-      format.html { redirect_to dashboard_path, notice: 'Booking was cancelled successfully! Refund will be initiated soon.' }
+      format.html { redirect_to dashboard_path, notice: 'Booking was cancelled successfully!' }
       format.json { head :no_content }
     end
   end
