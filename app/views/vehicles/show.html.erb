@@ -16,11 +16,12 @@
       <% if @vehicle.user_id == current_user.id %>
         <%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %><br>
         <%= link_to "Delete your #{@vehicle.name}", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@vehicle.name}?" } %>
-      <% end %>
-      <div class="row">
+      <% else %>
         <div class="col-md-6">
           <%= render 'bookings/form' %>
         </div>
+      <% end %>
+      <div class="row">
         <div class="col-md-6">
           <%= image_tag @vehicle.image, height: 300, width: 300 %>
         </div>
