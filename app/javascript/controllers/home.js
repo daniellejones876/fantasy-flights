@@ -1,3 +1,5 @@
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 document.querySelector.onmouseover = event => {
-  event.target.innerText = Math.random();
+  event.target.innerText = 
+  Math.floor(random() * 26 );
 }
