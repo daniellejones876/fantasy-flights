@@ -7,10 +7,6 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[show]
   resources :vehicles do
-    resources :bookings do
-      member do
-        patch :approve_booking
-      end
-    end
+    resources :bookings
   end
 end
