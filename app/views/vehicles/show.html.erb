@@ -11,12 +11,7 @@
       <strong>Description:</strong>
       <%= @vehicle.description %>
       <br>
-      <strong>Min days:</strong>
-      <%= @vehicle.min_days %>
-      <br>
-      <strong>Max days:</strong>
-      <%= @vehicle.max_days %>
-      <br>
+      <%= image_tag @owner.image, class:"avatar-large"%>
       <br>
       <% if @vehicle.user_id == current_user.id %>
         <%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %><br>

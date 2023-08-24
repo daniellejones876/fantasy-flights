@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: %i[show edit update destroy]
-
+  before_action :set_owner, only: [:show]
   def index
     @vehicles = Vehicle.all
     @markers = @vehicles.geocoded.map do |vehicle|
@@ -14,7 +14,6 @@ class VehiclesController < ApplicationController
 
   def show
     @booking = Booking.new
-
     @marker =
       {
         lat: @vehicle.latitude,
@@ -65,6 +64,10 @@ class VehiclesController < ApplicationController
   end
 
   private
+
+  def set_owner
+    @owner = @vehicle.user
+  end
 
   def set_vehicle
     @vehicle = Vehicle.find(params[:id])
