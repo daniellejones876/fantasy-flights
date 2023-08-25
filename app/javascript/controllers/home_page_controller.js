@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="home-page"
 export default class extends Controller {
-  static targets = ["hyperplexed"]
+  static targets = ["hyperplexed","intro"]
   static values = {title: String}
   connect() {
 
@@ -31,4 +31,8 @@ export default class extends Controller {
     },75);
   }
 
+  reveal() {
+    console.log(this.introTarget);
+    this.introTarget.classList.toggle("d-none");
+  }
 }
