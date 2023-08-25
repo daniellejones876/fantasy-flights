@@ -14,7 +14,7 @@
           <% end %>
           <div class ="mt-3">
             <% if @vehicle.user_id == current_user.id %>
-            <button type="button" class="btn btn-outline-dark rounded"><%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %></button>
+            <button type="button" class="btn btn-outline-dark"><%= link_to "Edit your #{@vehicle.name}", edit_vehicle_path(@vehicle) %></button>
             <button type="button" class="btn btn-outline-dark"><%= link_to "Delete your #{@vehicle.name}", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@vehicle.name}?" } %></button>
             <% end %>
           </div>
