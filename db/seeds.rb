@@ -8,7 +8,7 @@ draco.save
 
 nimbus = Vehicle.new(name: "Nimbus",
                      price_per_day: 50,
-                     location: "London",
+                     location: "Knightsbridge, London",
                      description: "Greetings, mere Muggles. Draco Malfoy
                     here, offering you the rare opportunity to ride my Nimbus 2001, a broom of unrivaled elegance and
                     power. Imagine yourself soaring above the common folk, basking in the envy of all. But remember,
@@ -20,7 +20,7 @@ nimbus.save
 
 hippogriff = Vehicle.new(name: "Hippogriff",
                          price_per_day: 150,
-                         location: "London",
+                         location: "Soho, London",
                          description: "Listen up, imbeciles. Draco
                         Malfoy here, reluctantly letting you rent my precious hippogriff. Touch it wrong, and you'll
                         face more than a mere sting. Return it late, and you'll wish you were facing a herd of
@@ -62,7 +62,7 @@ surfer.save
 
 surfboard = Vehicle.new(name: "Silver Surfer's surfboard",
                         price_per_day: 140,
-                        location: "New York",
+                        location: "Staten Island, New York",
                         description: "Surf the stars, glide through galaxies, and embrace boundless adventure. From
                         Porto to Sydney in under 90 minutes, Crafted for unparalleled speed,our surfboard offers a
                         transcendent and speedy experience. Safe, awe-inspiring, and available for intrepid travelers.")
@@ -76,7 +76,7 @@ batman.save
 
 batmobile = Vehicle.new(name: "Batmobile",
                         price_per_day: 200,
-                        location: "Chicago",
+                        location: "Lincoln Park, Chicago",
                         description: "Experience Porto's iconic thrill with the Batmobile. Navigate the cityscape in
                         unparalleled style and power. Our Batmobiles offer cutting-edge technology,sleek design, and
                         safety features for your journey. From nights out to secret missions, embrace the vigilante
@@ -87,7 +87,7 @@ batmobile.save
 
 bat = Vehicle.new(name: "The Bat",
                   price_per_day: 400,
-                  location: "Chicago",
+                  location: "Near North Side, Chicago",
                   description: "Greetings, fellow adventurers. Bruce Wayne here, thrilled to offer you the chance to
                   experience The Bat, my extraordinary flying machine. Embrace the skies like never before, with
                   cutting-edge technology and sleek design. Safety and confidentiality are paramount. Explore your hero
@@ -102,7 +102,7 @@ ironman.save
 
 mark = Vehicle.new(name: "Mark 43",
                    price_per_day: 670,
-                   location: "New York",
+                   location: "Greenwich Village, New York",
                    description: "Listen up, mere mortals! It's your lucky day because Tony Stark, genius, billionaire,
                    and the man behind the Iron Man suit, is offering you the chance of a lifetime. Need to up your game?
                    Rent the pinnacle of technology and sophistication—the Iron Man suit. Feel the power surge through
@@ -121,7 +121,7 @@ goblin.save
 
 glider = Vehicle.new(name: "Green Glider",
                      price_per_day: 120,
-                     location: "New York",
+                     location: "Queens, New York",
                      description: "Greetings, pathetic humans. The time has come for you to bask in the malevolent
                      magnificence of the Iron Green Glider, courtesy of yours truly, the Green Goblin. Ride the winds of
                      chaos with wicked delight, harnessing the power of my cutting-edge technology and sinister genius.
@@ -137,7 +137,7 @@ teller.save
 
 davidson = Vehicle.new(name: "Harley Davidson",
                        price_per_day: 25,
-                       location: "California",
+                       location: "Oakland, California",
                        description: "Hey there, road warriors! Ready to cruise like a true rebel? I'm Jax Teller, and
                        I've got my personal Harley Davidson up for rent. Feel the freedom of the open road on this
                        beast. But listen up, any scratches on her, and you'll wish you never sat in that saddle.
@@ -153,7 +153,7 @@ carter.save
 
 stingray = Vehicle.new(name: "Chevrolet Corvette Stingray",
                        price_per_day: 45,
-                       location: "California",
+                       location: "Hollywood, California",
                        description: "Yo, it's your buddy Carter from Rush Hour, and guess what? My sweet Chevrolet
                        Corvette Stingray C3 is up for grabs! Picture yourself cruisin' like a boss, turning heads like
                        I turn bad guys into punchlines. This car's got more attitude than I do — and that's saying
@@ -162,6 +162,118 @@ stingray = Vehicle.new(name: "Chevrolet Corvette Stingray",
   stingray.user_id = carter.id
   stingray.image = "vehicles/carter_car.png"
 stingray.save
+
+samwise = User.new(first_name: "Samwise", last_name: "Gamgee", email: "samwise@gmail.com", password: "123456", bio: "I'm Samwise Gamgee, a loyal gardener turned steadfast friend who stood by Frodo's side through the darkest of journeys to save Middle-earth.")
+samwise.image = "Users/Sam.png"
+samwise.save
+
+pony = Vehicle.new(name: "Bill the Pony",
+                      price_per_day: 10,
+                      location: "Somerset, England",
+                      description: "Embrace the heartwarming spirit of Middle-earth with a chance
+                      to rent Bill the Pony, the unsung hero of the Fellowship's journey! Recall the
+                      camaraderie and determination of Samwise Gamgee as you embark on your own adventures.
+                      With Bill by your side, every step becomes a reminder of friendship's strength. Whether i
+                      t's a leisurely stroll through scenic landscapes or a lighthearted trek to bond with loved ones,
+                      Bill's reliable and gentle presence will uplift your spirits. Book now and let Bill be the delightful
+                      companion that turns ordinary moments into extraordinary memories, echoing the resilience and loyalty
+                      that made him a beloved member of the Fellowship.")
+pony.user_id = samwise.id
+pony.image = "vehicles/bill_the_pony.png"
+pony.save
+
+
+wonder_woman = User.new(first_name: "Diana", last_name: "Prince", email: "diana@gmail.com", password: "123456", bio: "I'm Wonder Woman, an Amazonian warrior princess with unparalleled strength and a lasso that compels the truth, dedicated to fighting for justice and defending the world from any threat.")
+wonder_woman.image = "Users/wnder_woman.png"
+wonder_woman.save
+
+
+invisible_jet = Vehicle.new(name: "The Invisible Jet",
+  price_per_day: 110,
+  location: "Brooklyn, New York",
+  description: "Unleash your inner Amazonian with the Invisible Jet, straight
+  out of Wonder Woman's arsenal! Step into the shoes of a true warrior as you
+  soar through the skies with unmatched grace and power. Harness the legacy of
+  strength and courage, embracing the invisible force that propels you forward.
+  A symbol of empowerment and resilience, this jet is your key to traversing the
+  world with unyielding determination. Book now and experience the embodiment of
+  Wonder Woman's legacy, where invisibility is not a disguise but a testament to
+  the strength that lies within. The skies await your presence: claim your place
+  among the legends!")
+invisible_jet.user_id = wonder_woman.id
+invisible_jet.image = "vehicles/invisible_jet.png"
+invisible_jet.save
+
+
+
+green_hornet = User.new(first_name: "Britt", last_name: "Reid", email: "hornet@gmail.com", password: "123456", bio: "I'm the Green Hornet, the not-so-average Joe who fights crime by night while managing a newspaper empire by day, all with a sidekick who's more into coffee than crime-fighting.")
+green_hornet.image = "Users/green_hornet.png"
+green_hornet.save
+
+
+
+black_beauty = Vehicle.new(name: "Black Beauty",
+  price_per_day: 75,
+  location: "Detroit",
+  description: "Rev up your style with the iconic Black Beauty from the Green
+  Hornet! This ain't your average ride: it's a turbo-charged statement that
+  says, 'I've got a sense of humor and a need for speed.'
+  Cruise through the streets like a hero in disguise, or maybe just someone
+  who's really good at pulling off a pair of shades. With gadgets that would make
+  any spy jealous, the Black Beauty is perfect for those who want to add a dash
+  of cheeky charm to their journey. Ready to turn heads and raise eyebrows? Book
+  now and let your inner vigilante, or at least your inner jokester, hit the
+  road in style!")
+black_beauty.user_id = green_hornet.id
+black_beauty.image = "vehicles/black_beauty.png"
+black_beauty.save
+
+
+
+
+ghost_rider = User.new(first_name: "Johnny", last_name: "Blaze", email: "ghost@gmail.com", password: "123456", bio: "I am the Ghost Rider, a flaming-skulled agent of vengeance from the depths of hell, burning a trail of punishment across the souls of the wicked!")
+ghost_rider.image = "Users/ghost_rider.png"
+ghost_rider.save
+
+
+hellcycle = Vehicle.new(name: "Hellcycle",
+  price_per_day: 110,
+  location: "Waukegan, Illinois",
+  description: "Ignite terror on wheels with the Hellcycle from Ghost Rider.
+  Command attention and fear as you roar through the streets ablaze, capturing
+  the essence of pure, unholy power. Seize this opportunity to become the
+  harbinger of chaos at any event. But heed this ominous caution: mishandle this
+  malevolent force, and the flames of retribution shall engulf you. The choice
+  is yours: embrace the inferno or risk being consumed by it. The Hellcycle
+  beckons, daring you to ride on the edge of damnation.")
+hellcycle.user_id = ghost_rider.id
+hellcycle.image = "vehicles/hellcycle.png"
+hellcycle.save
+
+
+ron = User.new(first_name: "Ronald", last_name: "Weasley", email: "ron@gmail.com", password: "123456", bio: "I'm Ron Weasley, the guy who's not just good at magic, but also an expert at handling my twin brothers' mischievous pranks!")
+ron.image = "Users/Ron_Weasley.png"
+ron.save
+
+
+
+flying_car = Vehicle.new(name: "Flying Ford Anglia",
+  price_per_day: 40,
+  location: "Devon",
+  description: "Want to add a touch of wizardry to your life? Cruise around like
+  a true member of the Weasley family with our rental Ford Anglia straight out
+  of Ron's escapades! Sure, it might not fly, turn invisible, or save you from
+  spiders, but it's a Muggle classic with a magical twist. Impress your friends,
+  confuse the neighbors, and relive the whimsical charm of the wizarding world—all
+  without worrying about the Whomping Willow. Book now and enjoy a magical ride
+  that's almost as unforgettable as Ron's misadventures at Hogwarts! Just remember,
+  while it won't drive itself, it's guaranteed to drive you into smiles.")
+flying_car.user_id = ron.id
+flying_car.image = "vehicles/Flying_Ford_Anglia.png"
+flying_car.save
+
+
+
 
 puts "Created #{Vehicle.count} new mobiles 🚀"
 puts "Assigned #{User.count} to their respective cars listed 🏋🏽‍♀️"
