@@ -189,7 +189,7 @@ wonder_woman.save
 
 
 invisible_jet = Vehicle.new(name: "The Invisible Jet",
-  price_per_day: 110,
+  price_per_day: 475,
   location: "Brooklyn, New York",
   description: "Unleash your inner Amazonian with the Invisible Jet, straight
   out of Wonder Woman's arsenal! Step into the shoes of a true warrior as you
@@ -261,6 +261,46 @@ flying_car = Vehicle.new(name: "Flying Ford Anglia",
 flying_car.user_id = ron.id
 flying_car.image = "vehicles/Flying_Ford_Anglia.png"
 flying_car.save
+
+pro_x= User.new(first_name: "Charles", last_name: "Xavier", email: "charlie@gmail.com", password: "123456", bio: "I am Professor X, the telepathic mutant founder of the X-Men, dedicated to guiding and protecting mutants while pushing the boundaries of human-mutant coexistence!")
+pro_x.image = "Users/pro_x.png"
+pro_x.save
+
+x_jet = Vehicle.new(name: "X-Jet",
+  price_per_day: 350,
+  location: "Katonah, New york",
+  description: "Elevate your reality with the X-Jet, the embodiment of
+  Professor X's visionary genius. Crafted to carry the X-Men to the forefront of
+  evolution, this extraordinary aircraft now offers you the chance to
+  transcend the ordinary. Immerse yourself in the legacy of those who fought
+  for a world that embraces diversity and empowers unity. As you commandeer
+    the X-Jet, you inherit the spirit of Xavier's dream, soaring through skies
+    that bear witness to the extraordinary within us all. Book now and become
+    part of a lineage that redefines possibilities, proving that humanity's
+    greatest strengths are unlocked when we rise together.")
+x_jet.user_id = pro_x.id
+x_jet.image = "vehicles/xmen_jet.png"
+x_jet.save
+
+chewie = User.new(first_name: "Chew", last_name: "Bacca", email: "chewie@gmail.com", password: "123456", bio: "Rrwaaargh graaaahr hnn-rowr aarrragghuuh raaarghwaa rarrragghuuh mwaamgah hooogh mwaamggg waaamgah, hooorgh raaargh waaamgah hnn-rowr hnn-rowr waaamgah hnn-rowr hnn-rowr.")
+chewie.image = "Users/chewbacca.png"
+chewie.save
+
+falcon = Vehicle.new(name: "Millenium Falcon",
+  price_per_day: 550,
+  location: "Povoa de Varzim",
+  description: "Embark on a stellar journey like no other aboard the Millennium
+  Falcon! This legendary spacecraft is your ticket to weaving through galaxies,
+  making memories among the stars. Channel your inner Han Solo and Chewbacca as
+  you navigate the cosmos with the grace and history of a true icon. With its
+  unparalleled speed and charm, the Millennium Falcon ensures a voyage filled
+  with wonder and excitement. Whether you're a seasoned spacefarer or a newcomer
+  to the cosmos, this rental experience promises an adventure of a lifetime.
+  Book now and let the hum of hyperdrive engines serenade you to places where
+  dreams and stars collide.")
+falcon.user_id = chewie.id
+falcon.image = "vehicles/falcon.png"
+falcon.save
 
 puts "Created #{Vehicle.count} new mobiles 🚀"
 puts "Assigned #{User.count} to their respective cars listed 🏋🏽‍♀️"

@@ -2,6 +2,11 @@ class VehiclesController < ApplicationController
   before_action :set_vehicle, only: %i[show edit update destroy]
   def index
     @vehicles = Vehicle.all
+
+    if params[:query].present?
+      @vehicles = Vehicle.global_search(params[:query])
+    end
+
     @markers = @vehicles.geocoded.map do |vehicle|
       {
         lat: vehicle.latitude,
