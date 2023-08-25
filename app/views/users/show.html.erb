@@ -1,24 +1,24 @@
 <div class="container my-3">
   <div class="row h-100">
-    <div class="col-6">
-      <%= image_tag @user.image %>
+    <div class="col-lg-6 mb-4">
+    <img>
+      <%= image_tag @user.image , style: "height: 800px; width:600px; object-fit:cover;" %>
     </div>
     <div class="col-6">
       <div class="card text-center border-0">
         <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-        <strong>Bio:</strong>
-        <%= @user.bio %>
-        <br>
-        <br>
-        <strong>Listings:</strong><br><br>
+        <p><strong>Bio:</strong></p>
+        <div class="bio border-bottom mb-3 pb-1">
+          <%= @user.bio %>
+        </div>
       </div>
       <div class="container">
         <div class="card-deck d-flex justify-content-around mt-1">
-          <div class="card">
+          <div class="card border-0">
             <% @user.vehicles.each do |vehicle| %>
-            <div class="col-2 mb-20" style="width: 16rem">
+            <div class="col-2 mb-3" style="width: 16rem">
               <%= link_to vehicle_path(vehicle) do %>
-              <div class="card text-light text-center">
+              <div class="card text-light text-center shadow-sm rounded">
                 <%= image_tag vehicle.image, class:"card-img", style:"filter: brightness(75%)", crop: :fill, height: 200, width: 50%>
                 <div class="card-img-overlay p-2">
                   <h5 class="card-title pt-5 text-decoration-none text-white"> <%= vehicle.name %> </h5>
@@ -30,8 +30,6 @@
           </div>
         </div>
       </div>
-
-      <button type="button" class="btn btn-outline-dark"><%= link_to "Back to vehicles", vehicles_path %></button>
     </div>
   </div>
 </div>

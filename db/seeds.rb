@@ -205,12 +205,9 @@ invisible_jet.image = "vehicles/invisible_jet.png"
 invisible_jet.save
 
 
-
 green_hornet = User.new(first_name: "Britt", last_name: "Reid", email: "hornet@gmail.com", password: "123456", bio: "I'm the Green Hornet, the not-so-average Joe who fights crime by night while managing a newspaper empire by day, all with a sidekick who's more into coffee than crime-fighting.")
 green_hornet.image = "Users/green_hornet.png"
 green_hornet.save
-
-
 
 black_beauty = Vehicle.new(name: "Black Beauty",
   price_per_day: 75,
@@ -228,13 +225,9 @@ black_beauty.user_id = green_hornet.id
 black_beauty.image = "vehicles/black_beauty.png"
 black_beauty.save
 
-
-
-
 ghost_rider = User.new(first_name: "Johnny", last_name: "Blaze", email: "ghost@gmail.com", password: "123456", bio: "I am the Ghost Rider, a flaming-skulled agent of vengeance from the depths of hell, burning a trail of punishment across the souls of the wicked!")
 ghost_rider.image = "Users/ghost_rider.png"
 ghost_rider.save
-
 
 hellcycle = Vehicle.new(name: "Hellcycle",
   price_per_day: 110,
@@ -250,12 +243,9 @@ hellcycle.user_id = ghost_rider.id
 hellcycle.image = "vehicles/hellcycle.png"
 hellcycle.save
 
-
 ron = User.new(first_name: "Ronald", last_name: "Weasley", email: "ron@gmail.com", password: "123456", bio: "I'm Ron Weasley, the guy who's not just good at magic, but also an expert at handling my twin brothers' mischievous pranks!")
 ron.image = "Users/Ron_Weasley.png"
 ron.save
-
-
 
 flying_car = Vehicle.new(name: "Flying Ford Anglia",
   price_per_day: 40,
@@ -272,13 +262,9 @@ flying_car.user_id = ron.id
 flying_car.image = "vehicles/Flying_Ford_Anglia.png"
 flying_car.save
 
-
-
 pro_x= User.new(first_name: "Charles", last_name: "Xavier", email: "charlie@gmail.com", password: "123456", bio: "I am Professor X, the telepathic mutant founder of the X-Men, dedicated to guiding and protecting mutants while pushing the boundaries of human-mutant coexistence!")
 pro_x.image = "Users/pro_x.png"
 pro_x.save
-
-
 
 x_jet = Vehicle.new(name: "X-Jet",
   price_per_day: 350,
@@ -296,13 +282,9 @@ x_jet.user_id = pro_x.id
 x_jet.image = "vehicles/xmen_jet.png"
 x_jet.save
 
-
-
 chewie = User.new(first_name: "Chew", last_name: "Bacca", email: "chewie@gmail.com", password: "123456", bio: "Rrwaaargh graaaahr hnn-rowr aarrragghuuh raaarghwaa rarrragghuuh mwaamgah hooogh mwaamggg waaamgah, hooorgh raaargh waaamgah hnn-rowr hnn-rowr waaamgah hnn-rowr hnn-rowr.")
 chewie.image = "Users/chewbacca.png"
 chewie.save
-
-
 
 falcon = Vehicle.new(name: "Millenium Falcon",
   price_per_day: 550,
@@ -319,9 +301,6 @@ falcon = Vehicle.new(name: "Millenium Falcon",
 falcon.user_id = chewie.id
 falcon.image = "vehicles/falcon.png"
 falcon.save
-
-
-
 
 puts "Created #{Vehicle.count} new mobiles 🚀"
 puts "Assigned #{User.count} to their respective cars listed 🏋🏽‍♀️"
