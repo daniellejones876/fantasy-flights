@@ -1,6 +1,6 @@
+Booking.destroy_all
 User.destroy_all
 Vehicle.destroy_all
-Booking.destroy_all
 
 draco = User.new(first_name: "Draco", last_name: "Malfoy", email: "draco@gmail.com", password: "123456",bio: "Unapologetically silver-tongued scion navigating a world of wizardry with aristocratic flair.")
 draco.image = "Users/Draco.png"
@@ -271,9 +271,6 @@ flying_car = Vehicle.new(name: "Flying Ford Anglia",
 flying_car.user_id = ron.id
 flying_car.image = "vehicles/Flying_Ford_Anglia.png"
 flying_car.save
-
-
-
 
 puts "Created #{Vehicle.count} new mobiles 🚀"
 puts "Assigned #{User.count} to their respective cars listed 🏋🏽‍♀️"
