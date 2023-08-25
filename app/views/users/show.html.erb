@@ -18,7 +18,7 @@
             <% @user.vehicles.each do |vehicle| %>
             <div class="col-2 mb-3" style="width: 16rem">
               <%= link_to vehicle_path(vehicle) do %>
-              <div class="card text-light text-center">
+              <div class="card text-light text-center shadow-sm rounded">
                 <%= image_tag vehicle.image, class:"card-img", style:"filter: brightness(75%)", crop: :fill, height: 200, width: 50%>
                 <div class="card-img-overlay p-2">
                   <h5 class="card-title pt-5 text-decoration-none text-white"> <%= vehicle.name %> </h5>
