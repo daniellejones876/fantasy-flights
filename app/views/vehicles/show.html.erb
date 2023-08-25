@@ -7,6 +7,7 @@
           <h3 class="card-title mb-3"><%= @vehicle.name %></h3>
           <h6 class="card-subtitle mb-3 text-muted">Price Per Day: <%= @vehicle.price_per_day %>€</h6>
           <p class="card-text"><%= @vehicle.description %></p>
+
           <%= link_to user_path(@vehicle.user), class:"d-flex align-items-center justify-content-start" do %>
             <%= image_tag @vehicle.user.image, class:"avatar-large"%>
             <p class="card-link m-0 ms-2"><%=@vehicle.user.first_name%> <%=@vehicle.user.last_name%></p>
