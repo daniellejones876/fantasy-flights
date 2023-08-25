@@ -1,5 +1,49 @@
 <div class="container mt-3">
   <h1>Welcome to your dashboard, <%= current_user.first_name %>!</h1>
+  <div class="container">
+    <% if current_user.vehicles %>
+      <h4>Effortlessly travel through <%= current_user.vehicles.last.location %> in:</h4>
+      <div class="row mt-3 gap-1">
+        <% current_user.vehicles.each do |vehicle| %>
+          <div class="col-md-3 mb-44" style="width: 16rem">
+             <%= link_to vehicle_path(vehicle) do %>
+             <div class="card text-light text-center">
+              <%= image_tag vehicle.image, class:"card-img", style:"filter: brightness(75%)", crop: :fill, height: 200, width: 50%>
+              <div class="card-img-overlay p-2">
+                <h5 class="card-title pt-5 text-decoration-none text-white"> <%= vehicle.name %> </h5>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to "Add a vehicle", new_vehicle_path, class:"btn btn-dark mt-2"%>
+  </div>
+
+  <div class="container mt-4">
+    <% if current_user.bookings %>
+      <h2>Here are your bookings for the near future:</h2>
+      <div class="row mt-3 gap-1">
+        <% current_user.bookings.each do |booking| %>
+          <div class="card-product">
+            <%= link_to vehicle_path(booking.vehicle) do %>
+              <%= image_tag booking.vehicle.image, style:"filter: brightness(75%)"%>
+              <div class="card-product-infos">
+                <h3 class="card-title mb-3"><%= booking.vehicle.name %></h2>
+                <h6> <%= booking.vehicle.location %></h6>
+                <h6 class="card-subtitle mb-3 text-muted"> Total cost: <%= (booking.end_date-booking.start_date).to_i*booking.vehicle.price_per_day %>€</h6>
+                <h6> <%= booking.start_date.strftime('%d/%m/%Y') %> : <%= booking.end_date.strftime('%d/%m/%Y') %></h6>
+                <button type="button" class="btn btn-outline-dark"><%= link_to "Change dates", edit_vehicle_booking_path(id: booking, vehicle_id: booking.vehicle) %></button>
+                <button type="button" class="btn btn-outline-dark"><%= link_to "Cancel booking", vehicle_booking_path(id: booking, vehicle_id: booking.vehicle), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel your booking?'} %></button>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <p><%= link_to "Book another!", vehicles_path, class:"btn btn-info" %></p>
+      </div>
+    <% end %>
+  </div>
 
   <div class="container mt-4">
     <h4>These bookings need your attention:</h4>
@@ -31,54 +75,3 @@
       <% end %>
     </div>
   </div>
-
-<br>
-<br>
-
-
-  <div class="container">
-    <% if current_user.vehicles %>
-      <h4>Effortlessly travel through <%= current_user.vehicles.last.location %> in:</h4>
-      <div class="row mt-3 gap-1">
-        <% current_user.vehicles.each do |vehicle| %>
-          <div class="col-md-3 mb-44" style="width: 16rem">
-             <%= link_to vehicle_path(vehicle) do %>
-             <div class="card text-light text-center">
-              <%= image_tag vehicle.image, class:"card-img", style:"filter: brightness(75%)", crop: :fill, height: 200, width: 50%>
-              <div class="card-img-overlay p-2">
-                <h5 class="card-title pt-5 text-decoration-none text-white"> <%= vehicle.name %> </h5>
-              </div>
-            </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <%= link_to "Rent your vehicle", new_vehicle_path, class:"btn btn-dark mt-2"%>
-  </div>
-  <div class="container mt-4">
-    <% if current_user.bookings %>
-      <h4>Here are your bookings for the near future:</h4>
-      <div class="row mt-3 gap-1">
-        <% current_user.bookings.each do |booking| %>
-          <div class="col-md-3 mb-44" style="width: 16rem">
-            <%= link_to vehicle_path(booking.vehicle) do %>
-            <div class="card text-light text-center">
-              <%= image_tag booking.vehicle.image, class:"card-img", style:"filter: brightness(75%)", crop: :fill, height: 200, width: 50%>
-              <div class="card-img-overlay p-2">
-                <h5 class="card-title pt-5"><strong> <%= booking.vehicle.name %></strong></h5>
-              </div>
-            </div>
-            <% end %>
-                <h6> <%= booking.start_date %> - <%= booking.end_date %></h6>
-                <h6> <%= booking.vehicle.location %></h6>
-                <h6> Total cost: <%= (booking.end_date-booking.start_date).to_i*booking.vehicle.price_per_day %>€</h6>
-                <p><%= link_to "Change dates", edit_vehicle_booking_path(id: booking, vehicle_id: booking.vehicle) %></p>
-                <p><%= link_to "Cancel booking", vehicle_booking_path(id: booking, vehicle_id: booking.vehicle), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel your booking?'} %> </p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <p><%= link_to "Book another!", vehicles_path, class:"btn btn-info" %></p>
-  </div>
-</div>
