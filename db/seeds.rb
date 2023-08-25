@@ -77,7 +77,7 @@ batman.save
 batmobile = Vehicle.new(name: "Batmobile",
                         price_per_day: 200,
                         location: "Lincoln Park, Chicago",
-                        description: "Experience Porto's iconic thrill with the Batmobile. Navigate the cityscape in
+                        description: "Experience Chicago's iconic thrill with the Batmobile. Navigate the cityscape in
                         unparalleled style and power. Our Batmobiles offer cutting-edge technology,sleek design, and
                         safety features for your journey. From nights out to secret missions, embrace the vigilante
                         spirit.")
