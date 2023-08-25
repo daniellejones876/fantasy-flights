@@ -1,11 +1,5 @@
 <div class="container mt-3">
   <h1>Welcome to your dashboard, <%= current_user.first_name %>!</h1>
-
-
-<br>
-<br>
-
-
   <div class="container">
     <% if current_user.vehicles %>
       <h4>Effortlessly travel through <%= current_user.vehicles.last.location %> in:</h4>
