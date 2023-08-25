@@ -28,7 +28,7 @@ export default class extends Controller {
 
       iterations +=1 / 3;
 
-    },75);
+    },70);
   }
 
   reveal() {
