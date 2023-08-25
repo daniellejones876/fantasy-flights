@@ -102,6 +102,7 @@ ironman.save
 
 mark = Vehicle.new(name: "Mark 43",
                    price_per_day: 670,
+                   min_days: 4,
                    location: "Greenwich Village, New York",
                    description: "Listen up, mere mortals! It's your lucky day because Tony Stark, genius, billionaire,
                    and the man behind the Iron Man suit, is offering you the chance of a lifetime. Need to up your game?
