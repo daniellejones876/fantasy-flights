@@ -105,10 +105,8 @@ mark = Vehicle.new(name: "Mark 43",
                    location: "Greenwich Village, New York",
                    description: "Listen up, mere mortals! It's your lucky day because Tony Stark, genius, billionaire,
                    and the man behind the Iron Man suit, is offering you the chance of a lifetime. Need to up your game?
-                   Rent the pinnacle of technology and sophistication—the Iron Man suit. Feel the power surge through
-                   your veins as you become a living legend. You want style? Check. Unrivaled firepower? Check. A boost
-                   to your ego? Double-check. Picture yourself soaring through the skies, commanding respect and envy
-                   from every corner. Whether you're attending a gala, making an entrance, or
+                   Rent the pinnacle of technology and sophistication—the Iron Man suit. You want style? Check. Unrivaled firepower? Check. A boost
+                   to your ego? Double-check. Whether you're attending a gala, making an entrance, or
                    just flaunting your superiority, this suit has you covered. So, if you think you can handle the sheer
                    awesomeness that is me, Tony Stark, book now.")
 mark.user_id = ironman.id
@@ -294,8 +292,7 @@ falcon = Vehicle.new(name: "Millenium Falcon",
   making memories among the stars. Channel your inner Han Solo and Chewbacca as
   you navigate the cosmos with the grace and history of a true icon. With its
   unparalleled speed and charm, the Millennium Falcon ensures a voyage filled
-  with wonder and excitement. Whether you're a seasoned spacefarer or a newcomer
-  to the cosmos, this rental experience promises an adventure of a lifetime.
+  with wonder and excitement.
   Book now and let the hum of hyperdrive engines serenade you to places where
   dreams and stars collide.")
 falcon.user_id = chewie.id
