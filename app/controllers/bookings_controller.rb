@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     booking_duration = (@booking.end_date - @booking.start_date).to_i
 
     respond_to do |format|
-      if booking_duration.zero?
+      if booking_duration <= 0
         format.html { redirect_to vehicle_path(@vehicle), alert: 'Your booking needs to last longer than one day!' }
       elsif booking_duration < @booking.vehicle.min_days.to_i
         format.html { redirect_to vehicle_path(@vehicle), alert: "This booking needs to be longer than #{@booking.vehicle.min_days} days!" }
